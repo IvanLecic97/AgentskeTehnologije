@@ -18,6 +18,7 @@ code {
   width: 350px;
 }
 
-.navLink {
-  color: white;
+.messageForm {
+  background-color: chocolate;
+  width: 220px;
 }

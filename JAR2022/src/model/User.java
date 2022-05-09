@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import beans.IdGenerator;
 
@@ -15,6 +16,7 @@ public class User implements Serializable {
 	private String username;
 	private String host;
 	private String password;
+	private ArrayList<Message> messages = new ArrayList<Message>();
 	
 	public User() {
 		super();
@@ -24,6 +26,13 @@ public class User implements Serializable {
 		super();
 		this.username = username;
 		this.password = password;
+	}
+	
+	public User(String username, String password, ArrayList<Message> messages) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.messages = messages;
 	}
 	
 	
@@ -64,6 +73,13 @@ public class User implements Serializable {
 		return serialVersionUID;
 	}
 	
+	public ArrayList<Message> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(ArrayList<Message> messages) {
+		this.messages = messages;
+	}
 	
 	
 	

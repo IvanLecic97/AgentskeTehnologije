@@ -7,10 +7,13 @@ import Register from "./components/register";
 import Login from "./components/login";
 
 import axios from "axios";
+import Message from "./components/message";
+
 const App = () => {
   const [usernameForDeletion, setUsernameForDeletion] = useState(
     localStorage.getItem("username")
   );
+  const [msgCheck, setMsgCheck] = useState("asd");
   let onLogoutClick = (event) => {
     const url =
       "http://localhost:8080/WAR2022/rest/chat/users/loggedIn/" +
@@ -22,6 +25,7 @@ const App = () => {
     localStorage.removeItem("username");
     console.log(localStorage.getItem("username"));
   };
+
   return (
     <React.Fragment>
       <Navbar bg="primary" variant="dark">
@@ -37,6 +41,15 @@ const App = () => {
           Login
         </Nav.Link>
         <Nav.Link
+          disabled={msgCheck == 0 ? "true" : ""}
+          className="navLink"
+          style={{ color: "white" }}
+          href="/sendMessage"
+        >
+          Send Message
+        </Nav.Link>
+
+        <Nav.Link
           onClick={onLogoutClick}
           className="navLink"
           style={{ color: "white" }}
@@ -49,6 +62,7 @@ const App = () => {
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/sendMessage" element={<Message />} />
       </Routes>
     </React.Fragment>
   );

@@ -3,6 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk-11.0.13">
 		<attributes>
+			<attribute name="module" value="true"/>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
@@ -12,5 +13,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="C:/Users/ika_l/Desktop/wildfly-11.0.0.Final/modules/system/layers/base/javax/ejb/api/main/jboss-ejb-api_3.2_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="src" path="/WAR2022"/>
+	<classpathentry kind="lib" path="C:/Users/ika_l/Desktop/jar_files/jackson-annotations-2.13.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ika_l/Desktop/jar_files/jackson-core-2.13.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ika_l/Desktop/jar_files/jackson-databind-2.13.2.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
