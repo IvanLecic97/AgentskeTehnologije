@@ -2,18 +2,28 @@ import logo from "./logo.svg";
 import "./App.css";
 import React, { useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Route, Routes, BrowserRouter, Link } from "react-router-dom";
+import {
+  Route,
+  Routes,
+  BrowserRouter,
+  Link,
+  useNavigate,
+} from "react-router-dom";
 import Register from "./components/register";
 import Login from "./components/login";
 
 import axios from "axios";
 import Message from "./components/message";
+import AllMessages from "./allMessages";
 
 const App = () => {
   const [usernameForDeletion, setUsernameForDeletion] = useState(
     localStorage.getItem("username")
   );
-  const [msgCheck, setMsgCheck] = useState("asd");
+
+  const [msgCheck, setMsgCheck] = useState(localStorage.getItem("username"));
+  let navigate = useNavigate();
+
   let onLogoutClick = (event) => {
     const url =
       "http://localhost:8080/WAR2022/rest/chat/users/loggedIn/" +
@@ -23,6 +33,7 @@ const App = () => {
     });
 
     localStorage.removeItem("username");
+    //localStorage.setItem("username", "");
     console.log(localStorage.getItem("username"));
   };
 
@@ -41,7 +52,7 @@ const App = () => {
           Login
         </Nav.Link>
         <Nav.Link
-          disabled={msgCheck == 0 ? "true" : ""}
+          disabled={msgCheck == null ? true : false}
           className="navLink"
           style={{ color: "white" }}
           href="/sendMessage"
@@ -57,12 +68,21 @@ const App = () => {
         >
           Logout
         </Nav.Link>
+
+        <Nav.Link
+          href="/allMessages"
+          className="navLink"
+          style={{ color: "white" }}
+        >
+          See messages
+        </Nav.Link>
       </Navbar>
 
       <Routes>
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sendMessage" element={<Message />} />
+        <Route path="/allMessages" element={<AllMessages />} />
       </Routes>
     </React.Fragment>
   );

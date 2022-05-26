@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Button } from "react-bootstrap";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  let navigate = useNavigate();
 
   let onChangeUsername = (event) => {
     event.preventDefault();
@@ -32,6 +34,7 @@ const Login = () => {
       localStorage.setItem("username", response.data.username);
       console.log(localStorage.getItem("username") + "asdad");
     });
+    //navigate("/sendMessage");
   };
 
   return (
